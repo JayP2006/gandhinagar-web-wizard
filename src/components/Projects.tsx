@@ -74,24 +74,6 @@ const Projects = () => {
       techStack: ["HTML", "CSS", "JavaScript"],
       github: "https://github.com/JayP2006/Rock-Paper-Secissorgame",
       liveDemo: "#"
-    },
-    {
-      title: "Realtime Location Tracking",
-      description: "GPS tracking app with real-time location updates, route history, and geofencing alerts using WebSocket.",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-      icon: "map-pin",
-      techStack: ["React", "Node.js", "Socket.io", "MongoDB", "Google Maps API"],
-      github: "https://github.com/JayP2006/realtime-tracking",
-      liveDemo: "#"
-    },
-    {
-      title: "Instagram Clone",
-      description: "Social media platform with photo sharing, likes, comments, and real-time messaging features.",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-      icon: "instagram",
-      techStack: ["React", "Node.js", "MongoDB", "Socket.io", "Cloudinary"],
-      github: "https://github.com/JayP2006/instagram-clone",
-      liveDemo: "#"
     }
   ];
 
