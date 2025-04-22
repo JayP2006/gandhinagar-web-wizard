@@ -6,16 +6,16 @@ const Projects = () => {
     {
       title: "AI Assessment Tool for Students",
       description: "AI-powered platform for evaluating grammar, speech, and resumes with feedback generation.",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+      image: "assessment.png",
       icon: "robot",
       techStack: ["MERN Stack", "AI APIs (Cohere, AssemblyAI)"],
-      github: "#",
+      github: "https://github.com/JayP2006/ai-assessment-tool",
       liveDemo: "#"
     },
     {
       title: "AI Code Reviewer",
       description: "Web app to submit code and get AI-generated review suggestions, detect bugs, and improve code quality.",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+      image: "/codereview.jpg",
       icon: "file-code-2",
       techStack: ["MERN Stack", "Gemini API", "MongoDB"],
       github: "https://github.com/JayP2006/ai-powered-code-reviewer",
@@ -24,7 +24,7 @@ const Projects = () => {
     {
       title: "Realtime Chat App",
       description: "Real-time chat with secure JWT login, instant messaging, and MongoDB-based storage.",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+      image: "/chatapp.jpg",
       icon: "message-square",
       techStack: ["React", "Node.js", "MongoDB", "Socket.io", "JWT"],
       github: "https://github.com/JayP2006/chat-app",
@@ -33,28 +33,47 @@ const Projects = () => {
     {
       title: "AI Image Enhancer",
       description: "Upload and enhance images with AI upscaling, denoising, and contrast adjustment.",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+      image: "/imageenhance.jpg",
       icon: "image",
       techStack: ["React", "Node.js", "AI APIs", "MongoDB"],
-      github: "#",
+      github: "https://github.com/JayP2006/image-enhancer",
       liveDemo: "#"
     },
     {
       title: "Blood Bank Management System",
       description: "Django-based admin dashboard for managing donors, recipients, and blood inventory.",
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+      image: "/blood.jpg",
       icon: "hospital",
       techStack: ["Python", "Django", "SQLite"],
-      github: "#",
+      github: "https://github.com/JayP2006/python-djangoproject-bloodbank",
+      liveDemo: "#"
+    },
+
+    {
+      title: "Realtime Location Tracking",
+      description: "GPS tracking app with real-time location updates, route history, and geofencing alerts using WebSocket.",
+      image: "/track.jpg",
+      icon: "map-pin",
+      techStack: ["React", "Node.js", "Socket.io", "MongoDB", "Google Maps API"],
+      github: "https://github.com/JayP2006/device-track",
+      liveDemo: "#"
+    },
+    {
+      title: "Instagram Clone",
+      description: "Social media platform with photo sharing, likes, comments, and real-time messaging features.",
+      image: "/insta.jpg",
+      icon: "instagram",
+      techStack: ["React", "Node.js", "MongoDB", "Socket.io", "Cloudinary"],
+      github: "https://github.com/JayP2006/instaclonee",
       liveDemo: "#"
     },
     {
       title: "Rock Paper Scissors Game",
       description: "Interactive browser game with basic game logic and score tracking.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+      image: "/rock.png",
       icon: "hand-rock",
       techStack: ["HTML", "CSS", "JavaScript"],
-      github: "#",
+      github: "https://github.com/JayP2006/Rock-Paper-Secissorgame",
       liveDemo: "#"
     }
   ];

@@ -4,21 +4,21 @@ const Education = () => {
     {
       institution: "SSIT, Gandhinagar",
       degree: "B.Tech in Computer Science Engineering",
-      duration: "2020 - 2024",
+      duration: "2024 - 2027",
       grade: "CGPA: 9.26",
       details: "Focused on advanced computer science topics including web development, artificial intelligence, and database systems."
     },
     {
       institution: "SSP Polytechnic",
       degree: "Diploma in Computer Engineering",
-      duration: "2017 - 2020",
+      duration: "2021 - 2024",
       grade: "CGPA: 9.65",
       details: "Developed strong foundation in programming, computer networks, and software engineering principles."
     },
     {
       institution: "Sheth C.M. Highschool",
       degree: "10th Standard",
-      duration: "2016 - 2017",
+      duration: "2020 - 2021",
       grade: "Percentage: 83%",
       details: "Developed a strong foundation in mathematics and science, setting the stage for future technological pursuits."
     }
@@ -28,13 +28,13 @@ const Education = () => {
     {
       title: "1st Rank in 6th Semester",
       organization: "Gujarat Technological University",
-      year: "2023",
+      year: "2024",
       description: "Secured the top position among all computer science students in the 6th semester examinations."
     },
     {
-      title: "1st Rank in Box Cricket",
+      title: "1st Rank in Cricket",
       organization: "College Sports Tournament",
-      year: "2022",
+      year: "2024",
       description: "Led the team to victory in the annual college box cricket tournament."
     }
   ];
