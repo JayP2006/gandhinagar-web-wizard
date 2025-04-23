@@ -1,6 +1,8 @@
 
 import { Mail, Phone, Github, Linkedin } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import emailjs from 'emailjs-com';
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +10,11 @@ const Contact = () => {
     email: "",
     message: ""
   });
+
+  useEffect(() => {
+    emailjs.init("7ZUQd9T5SNeeziM5J");
+  }, []);
+  
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState({
@@ -23,32 +30,32 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitMessage({
-        type: "success",
-        text: "Message sent successfully! I'll get back to you soon."
-      });
-      
-      setFormData({
-        name: "",
-        email: "",
-        message: ""
-      });
-      
-      // Clear success message after 5 seconds
-      setTimeout(() => {
-        setSubmitMessage({
-          type: "",
-          text: ""
-        });
-      }, 5000);
-    }, 1500);
+  
+    try {
+      const result = await emailjs.send(
+        'service_v9mln5m',
+        'template_cas860r',
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          time: new Date().toLocaleString()
+        },
+        '7ZUQd9T5SNeeziM5J'
+      );
+      console.log(result)
+  
+      setSubmitMessage({ type: "success", text: "Message sent successfully!" });
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      setSubmitMessage({ type: "error", text: "Failed to send message." });
+      console.log(error)
+    }
+  
+    setIsSubmitting(false);
   };
 
   const contactInfo = [
