@@ -147,7 +147,7 @@ const Hero = () => {
             data-aos-delay="200"
           >
             <a 
-              href="../public/jayResume" 
+              href="/jayResume.pdf" 
               download="Jay_Resume.pdf"
               className="flex items-center gap-2 px-6 py-3 bg-accent text-white font-medium rounded-full shadow-lg hover:shadow-accent/50 transition-all"
             >
