@@ -32,11 +32,30 @@ const Education = () => {
       description: "Secured the top position among all computer science students in the 6th semester examinations."
     },
     {
-      title: "1st Rank in Cricket",
-      organization: "College Sports Tournament",
-      year: "2024",
-      description: "Led the team to victory in the annual college box cricket tournament."
+      title: "300+ DSA problem solved",
+      organization: "Data Structures & Algorithm",
+      year: "2025",
+      description: "Solved 200+ DSA problems across LeetCode and GeeksforGeeks with consistent focus on optimization and edge case handling"
+    },
+    {
+      title: "3 ⭐⭐⭐ in problem solving HackerRank",
+      organization: "Data Structures & Algorithm",
+      year: "2025",
+      description: "3-Star in Problem Solving on HackerRank, demonstrating strong grasp of algorithms and data structures."
+    },
+    {
+      title: "Certificates of AI,Next.js and Javascript",
+      organization: "Data Structures & Algorithm",
+      year: "2025",
+      description: "Certified in AI & Green Skills (Edunet), Next.js(GFG), Advanced JavaScript (GFG), and HackerRank Intermediate"
+    },
+    {
+      title: "GeeksforGeeks 160 Days DSA",
+      organization: "Data Structures & Algorithm",
+      year: "2025",
+      description: "Currently participating in the GeeksforGeeks 160 Days DSA Challenge to strengthen core programming fundamentals"
     }
+    
   ];
 
   return (
