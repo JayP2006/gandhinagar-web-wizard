@@ -5,7 +5,7 @@ const Education = () => {
       institution: "SSIT, Gandhinagar",
       degree: "B.Tech in Computer Science Engineering",
       duration: "2024 - 2027",
-      grade: "CGPA: 9.26",
+      grade: "CGPA: 8.98",
       details: "Focused on advanced computer science topics including web development, artificial intelligence, and database systems."
     },
     {
