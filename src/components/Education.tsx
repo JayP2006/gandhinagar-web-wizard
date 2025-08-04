@@ -26,7 +26,7 @@ const Education = () => {
 
   const achievements = [
   {
-    title: "Shortlisted for Amazon SDE Intern",
+    title: "Amazon SDE Intern Shortlisted",
     organization: "Amazon",
     year: "2025",
     description: "Among top candidates selected from thousands of applicants across India for the prestigious SDE Intern 2-month program."
