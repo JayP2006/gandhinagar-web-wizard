@@ -25,38 +25,38 @@ const Education = () => {
   ];
 
   const achievements = [
-    {
-      title: "Amazon SDE Intern Shortlisted",
-      organization: "Amazon",
-      year: "2025",
-      description: "Among top candidates selected from thousands of applicants across India."
-    },
-    {
-      title: "300+ DSA problem solved",
-      organization: "Data Structures & Algorithm",
-      year: "2025",
-      description: "Solved 200+ DSA problems across LeetCode and GeeksforGeeks with consistent focus on optimization and edge case handling"
-    },
-    {
-      title: "3 ⭐⭐⭐ in problem solving HackerRank",
-      organization: "Data Structures & Algorithm",
-      year: "2025",
-      description: "3-Star in Problem Solving on HackerRank, demonstrating strong grasp of algorithms and data structures."
-    },
-    {
-      title: "Certificates of AI,Next.js and Javascript",
-      organization: "Data Structures & Algorithm",
-      year: "2025",
-      description: "Certified in AI & Green Skills (Edunet), Next.js(GFG), Advanced JavaScript (GFG), and HackerRank Intermediate"
-    },
-    {
-      title: "GeeksforGeeks 160 Days DSA",
-      organization: "Data Structures & Algorithm",
-      year: "2025",
-      description: "Currently participating in the GeeksforGeeks 160 Days DSA Challenge to strengthen core programming fundamentals"
-    }
-    
-  ];
+  {
+    title: "Shortlisted for Amazon SDE Intern",
+    organization: "Amazon",
+    year: "2025",
+    description: "Among top candidates selected from thousands of applicants across India for the prestigious SDE Intern 2-month program."
+  },
+  {
+    title: "Solved 300+ DSA Problems",
+    organization: "LeetCode & GeeksforGeeks",
+    year: "2025",
+    description: "Solved over 300 problems with consistent focus on optimization, edge cases, and data structure mastery."
+  },
+  {
+    title: "3⭐ in Problem Solving",
+    organization: "HackerRank",
+    year: "2025",
+    description: "Earned 3-Star rating in Problem Solving, demonstrating strong grasp of algorithms and data structures."
+  },
+  {
+    title: "Certified in AI, Next.js & JavaScript",
+    organization: "GFG, Edunet, HackerRank",
+    year: "2025",
+    description: "Completed certifications in Artificial Intelligence & Green Skills (Edunet), Full Stack Next.js and Advanced JavaScript (GFG), and Intermediate JavaScript (HackerRank)."
+  },
+  {
+    title: "GeeksforGeeks 160 Days DSA Challenge",
+    organization: "GeeksforGeeks",
+    year: "2025",
+    description: "Actively participating in the GFG 160 Days DSA Challenge to strengthen core problem-solving and coding fundamentals."
+  }
+];
+
 
   return (
     <section id="education" className="section-padding">
