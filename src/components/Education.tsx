@@ -26,10 +26,10 @@ const Education = () => {
 
   const achievements = [
     {
-      title: "1st Rank in 6th Semester",
-      organization: "Gujarat Technological University",
-      year: "2024",
-      description: "Secured the top position among all computer science students in the 6th semester examinations."
+      title: "Amazon SDE Intern Shortlisted",
+      organization: "Amazon",
+      year: "2025",
+      description: "Among top candidates selected from thousands of applicants across India."
     },
     {
       title: "300+ DSA problem solved",
