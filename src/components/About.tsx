@@ -23,7 +23,7 @@ const About = () => {
               
               <div className="flex-1">
                 <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
-                  I'm a Computer Science student at <strong>SSIT, Gandhinagar</strong> with a CGPA of <strong>9.26</strong>. Previously, I studied at SSP Polytechnic where I maintained a CGPA of <strong>9.65</strong>.
+                  I'm a Computer Science student at <strong>SSIT, Gandhinagar</strong> with a CGPA of <strong>8.98</strong>. Previously, I studied at SSP Polytechnic where I maintained a CGPA of <strong>9.65</strong>.
                 </p>
                 <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
                   I'm passionate about web development, AI tools, and automation. My expertise lies in building full-stack applications using the MERN stack, Django, Python, and various API integrations.
