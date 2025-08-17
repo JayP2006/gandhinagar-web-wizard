@@ -1,6 +1,6 @@
 import { Github } from "lucide-react";
 
-  const Projects = () => {
+const Projects = () => {
   const projects = [
     {
       title: "ShrinkX – Advanced URL Shortener",
@@ -84,8 +84,6 @@ import { Github } from "lucide-react";
       liveDemo: "#"
     }
   ];
-};
-
 
   return (
     <section id="projects" className="section-padding bg-gray-50 dark:bg-gray-900">
