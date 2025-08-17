@@ -1,6 +1,5 @@
 import { Github } from "lucide-react";
 
-const Projects = () => {
   const Projects = () => {
   const projects = [
     {
