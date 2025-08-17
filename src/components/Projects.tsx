@@ -1,7 +1,17 @@
 import { Github } from "lucide-react";
 
 const Projects = () => {
+  const Projects = () => {
   const projects = [
+    {
+      title: "ShrinkX – Advanced URL Shortener",
+      description: "Full-stack link management platform with custom short links, QR codes, password-protected & auto-expiring links, and real-time analytics.",
+      image: "/shrinkx.jpg",
+      icon: "link",
+      techStack: ["MERN Stack", "JWT Auth", "MongoDB Atlas", "Tailwind CSS"],
+      github: "https://github.com/JayP2006/Urlshortner",
+      liveDemo: "https://shrinkx.onrender.com"
+    },
     {
       title: "AI Assessment Tool for Students",
       description: "AI-powered platform for evaluating grammar, speech, and resumes with feedback generation.",
@@ -47,7 +57,6 @@ const Projects = () => {
       github: "https://github.com/JayP2006/python-djangoproject-bloodbank",
       liveDemo: "#"
     },
-
     {
       title: "Realtime Location Tracking",
       description: "GPS tracking app with real-time location updates, route history, and geofencing alerts using WebSocket.",
@@ -76,6 +85,8 @@ const Projects = () => {
       liveDemo: "#"
     }
   ];
+};
+
 
   return (
     <section id="projects" className="section-padding bg-gray-50 dark:bg-gray-900">
