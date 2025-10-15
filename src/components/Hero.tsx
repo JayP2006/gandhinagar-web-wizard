@@ -147,8 +147,8 @@ const Hero = () => {
             data-aos-delay="200"
           >
             <a 
-              href="/Resume-1.pdf" 
-              download="Resume-1.pdf"
+              href="/ResumeFinal.pdf" 
+              download="ResumeFinal.pdf"
               className="flex items-center gap-2 px-6 py-3 bg-accent text-white font-medium rounded-full shadow-lg hover:shadow-accent/50 transition-all"
             >
               <Download size={20} />
