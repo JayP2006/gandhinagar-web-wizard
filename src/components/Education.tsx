@@ -24,36 +24,69 @@ const Education = () => {
     }
   ];
 
-  const achievements = [
+ const achievements = [
   {
-    title: "Amazon SDE Intern Shortlisted",
-    organization: "Amazon",
-    year: "2025",
-    description: "Among top candidates selected from thousands of applicants across India for the prestigious SDE Intern 2-month program."
-  },
-  {
-    title: "Solved 300+ DSA Problems",
+    title: "Solved 800+ DSA Problems",
     organization: "LeetCode & GeeksforGeeks",
     year: "2025",
-    description: "Solved over 300 problems with consistent focus on optimization, edge cases, and data structure mastery."
+    description:
+      "Solved 800+ data structure and algorithm problems across arrays, strings, trees, graphs, DP, and advanced topics, demonstrating strong analytical thinking and problem-solving expertise."
   },
   {
-    title: "3⭐ in Problem Solving",
-    organization: "HackerRank",
-    year: "2025",
-    description: "Earned 3-Star rating in Problem Solving, demonstrating strong grasp of algorithms and data structures."
-  },
-  {
-    title: "Certified in AI, Next.js & JavaScript",
-    organization: "GFG, Edunet, HackerRank",
-    year: "2025",
-    description: "Completed certifications in Artificial Intelligence & Green Skills (Edunet), Full Stack Next.js and Advanced JavaScript (GFG), and Intermediate JavaScript (HackerRank)."
-  },
-  {
-    title: "GeeksforGeeks 160 Days DSA Challenge",
+    title: "Completed GFG 160 Days DSA Challenge",
     organization: "GeeksforGeeks",
     year: "2025",
-    description: "Actively participating in the GFG 160 Days DSA Challenge to strengthen core problem-solving and coding fundamentals."
+    description:
+      "Successfully completed the prestigious 160 Days DSA Challenge, solving topic-wise problems across all major data structures and algorithms with consistency and discipline."
+  },
+  {
+    title: "Rank 1 in College – GeeksforGeeks",
+    organization: "GeeksforGeeks",
+    year: "2025",
+    description:
+      "Secured Rank 1 in college on GeeksforGeeks for problem-solving, showcasing competitive programming excellence and strong command over DSA."
+  },
+  {
+    title: "Amazon SDE Intern – Shortlisted",
+    organization: "Amazon",
+    year: "2025",
+    description:
+      "Shortlisted for the Amazon SDE Intern (2-Month) program after clearing initial screening rounds among thousands of applicants across India."
+  },
+  {
+    title: "Hackathon Participant (National Level)",
+    organization: "SIH, Adobe, Universities & Colleges",
+    year: "2024–2025",
+    description:
+      "Participated in major hackathons including Smart India Hackathon (SIH), Adobe India Hackathon, HackOut’25 (Dhirubhai Ambani University), and HackHertz’25, gaining real-world problem-solving and teamwork experience."
+  },
+  {
+    title: "Top Ranker – Diploma (9.65 CGPA)",
+    organization: "GTU Affiliated Institute",
+    year: "2023",
+    description:
+      "Achieved an outstanding 9.65 CGPA in Diploma, ranking 1st in college during the 6th semester through consistent academic excellence."
+  },
+  {
+    title: "Dewang Mehta IT Award – GTU",
+    organization: "Gujarat Technological University",
+    year: "2024",
+    description:
+      "Awarded the prestigious Dewang Mehta IT Award by GTU for exceptional academic performance as a top ranker in B.E. Computer Science."
+  },
+  {
+    title: "HackerRank Problem Solving – 4★",
+    organization: "HackerRank",
+    year: "2025",
+    description:
+      "Earned a 4-Star badge in Problem Solving, validating advanced proficiency in algorithms, data structures, and logical reasoning."
+  },
+  {
+    title: "Professional Certifications",
+    organization: "GFG, Edunet, HackerRank",
+    year: "2024–2025",
+    description:
+      "Certified in Advanced JavaScript and Next.js (GeeksforGeeks), AI & Green Skills (Edunet), and Problem Solving & JavaScript (HackerRank)."
   }
 ];
 
