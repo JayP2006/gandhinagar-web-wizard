@@ -1,242 +1,30 @@
-
-import { Mail, Phone, Github, Linkedin } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useRef, useState, type FormEvent } from 'react';
+import { ArrowUpRight, ArrowRight, Loader2, Github, Linkedin, Mail, Phone } from 'lucide-react';
 import emailjs from 'emailjs-com';
-
-
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
-
-  useEffect(() => {
-    emailjs.init("7ZUQd9T5SNeeziM5J");
-  }, []);
-  
-  
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState({
-    type: "",
-    text: ""
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-  
+import { Button } from '@/components/ui/button';
+import { socials } from '@/data/portfolio';
+export default function Contact() {
+  const [sending, setSending] = useState(false);
+  const pending = useRef(false);
+  const [feedback, setFeedback] = useState<{ ok: boolean; text: string } | null>(null);
+  const [values, setValues] = useState({ name: '', email: '', message: '' });
+  const service = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const template = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const key = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+  const configured = Boolean(service && template && key);
+  const change = (field: keyof typeof values, value: string) => { setValues(v => ({ ...v, [field]: value })); setFeedback(null); };
+  async function submit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault(); if (pending.current) return;
+    if (!values.name.trim() || !values.message.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) { setFeedback({ ok: false, text: 'Please enter your name, a valid email, and a message.' }); return; }
+    if (!configured) { setFeedback({ ok: false, text: 'The message service is not configured. Please email me directly.' }); return; }
+    pending.current = true; setSending(true); setFeedback(null);
     try {
-      const result = await emailjs.send(
-        'service_v9mln5m',
-        'template_cas860r',
-        {
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          time: new Date().toLocaleString()
-        },
-        
-        '7ZUQd9T5SNeeziM5J'
-      );
-      console.log(result)
-  
-      setSubmitMessage({ type: "success", text: "Message sent successfully!" });
-      setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      setSubmitMessage({ type: "error", text: "Failed to send message." });
-      console.log(error)
-    }
-  
-    setIsSubmitting(false);
-  };
-
-  const contactInfo = [
-    {
-      icon: <Mail size={24} />,
-      label: "Email",
-      value: "jay91451@gmail.com",
-      link: "mailto:jay91451@gmail.com"
-    },
-    {
-      icon: <Phone size={24} />,
-      label: "Phone",
-      value: "+91-7046249240",
-      link: "tel:+917046249240"
-    },
-    {
-      icon: <Github size={24} />,
-      label: "GitHub",
-      value: "github.com/JayP2006",
-      link: "https://github.com/JayP2006"
-    },
-    {
-      icon: <Linkedin size={24} />,
-      label: "LinkedIn",
-      value: "linkedin.com/in/pjaykumar",
-      link: "https://linkedin.com/in/pjaykumar"
-    }
-  ];
-
-  return (
-    <section id="contact" className="section-padding bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto">
-        <div className="text-center mb-12" data-aos="fade-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-            Get In Touch
-          </h2>
-          <div className="w-20 h-1 bg-accent mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Have a question or want to work together? Feel free to contact me!
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Form */}
-          <div 
-            className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 md:p-8 order-2 lg:order-1"
-            data-aos="fade-right"
-          >
-            <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Send Message</h3>
-            
-            <form onSubmit={handleSubmit}>
-              <div className="mb-6">
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-accent focus:bg-white dark:focus:bg-gray-800 focus:ring-0 text-gray-900 dark:text-white"
-                  required
-                />
-              </div>
-              
-              <div className="mb-6">
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-accent focus:bg-white dark:focus:bg-gray-800 focus:ring-0 text-gray-900 dark:text-white"
-                  required
-                />
-              </div>
-              
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={5}
-                  className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-accent focus:bg-white dark:focus:bg-gray-800 focus:ring-0 text-gray-900 dark:text-white"
-                  required
-                ></textarea>
-              </div>
-              
-              {submitMessage.text && (
-                <div className={`mb-6 p-3 rounded-lg ${
-                  submitMessage.type === "success" 
-                    ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300" 
-                    : "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300"
-                }`}>
-                  {submitMessage.text}
-                </div>
-              )}
-              
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`w-full py-3 px-6 rounded-lg font-medium ${
-                  isSubmitting 
-                    ? "bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-200 cursor-not-allowed" 
-                    : "bg-accent text-white hover:shadow-lg hover:shadow-accent/50 transition-all"
-                }`}
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </button>
-            </form>
-          </div>
-          
-          {/* Contact Information */}
-          <div 
-            className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 md:p-8 order-1 lg:order-2"
-            data-aos="fade-left"
-          >
-            <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Contact Information</h3>
-            
-            <div className="space-y-6">
-              {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-start">
-                  <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-accent/10 text-accent rounded-lg">
-                    {info.icon}
-                  </div>
-                  <div className="ml-4">
-                    <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                      {info.label}
-                    </h4>
-                    <a 
-                      href={info.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-lg font-medium text-gray-900 dark:text-white hover:text-accent dark:hover:text-accent transition-colors"
-                    >
-                      {info.value}
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            <div className="mt-10">
-              <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
-                Find me on social media
-              </h4>
-              <div className="flex space-x-4">
-                <a 
-                  href="https://github.com/JayP2006" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 flex items-center justify-center bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full hover:bg-accent hover:text-white dark:hover:bg-accent dark:hover:text-white transition-colors"
-                  aria-label="GitHub"
-                >
-                  <Github size={24} />
-                </a>
-                <a 
-                  href="https://linkedin.com/in/pjaykumar" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 flex items-center justify-center bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full hover:bg-[#0077B5] hover:text-white dark:hover:bg-[#0077B5] dark:hover:text-white transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin size={24} />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Contact;
+      const result = await emailjs.send(service, template, { name: values.name.trim(), email: values.email.trim(), message: values.message.trim(), time: new Date().toLocaleString() }, key);
+      if (result.status !== 200) throw new Error('Delivery not confirmed');
+      setFeedback({ ok: true, text: 'Message sent successfully. Thank you for reaching out!' }); setValues({ name: '', email: '', message: '' });
+    } catch { setFeedback({ ok: false, text: 'Your message could not be sent. Please try again or email me directly.' }); }
+    finally { pending.current = false; setSending(false); }
+  }
+  return <section id="contact" className="chapter section-shell contact-section"><div className="chapter-label"><span>06 / THE NEXT CHAPTER</span><span>LET’S MAKE IT HAPPEN</span></div><div className="contact-layout"><div><h2>Have an idea?<br />Let’s build<br /><span className="text-primary">something great.</span></h2><p className="text-muted-foreground contact-intro">A thoughtful product, an interesting challenge, or simply a conversation. I’d love to hear from you.</p><a className="contact-email" href={`mailto:${socials.email}`}>{socials.email}<ArrowUpRight size={22} /></a><a className="flex items-center gap-3 text-muted-foreground mb-8" href="tel:+917046249240"><Phone size={16} />{socials.phone}</a><div className="flex gap-4"><Button asChild variant="outline"><a href={socials.github} target="_blank" rel="noopener noreferrer"><Github />GitHub<ArrowUpRight /></a></Button><Button asChild variant="outline"><a href={socials.linkedin} target="_blank" rel="noopener noreferrer"><Linkedin />LinkedIn<ArrowUpRight /></a></Button></div></div>
+    <form className="contact-form" onSubmit={submit} aria-busy={sending}><span className="mono text-muted-foreground">START A CONVERSATION</span><div><label htmlFor="contact-name">Your name</label><input id="contact-name" name="name" autoComplete="name" maxLength={150} required value={values.name} onChange={e => change('name', e.target.value)} placeholder="How should I call you?" /></div><div><label htmlFor="contact-email">Email address</label><input id="contact-email" name="email" type="email" autoComplete="email" maxLength={254} required value={values.email} onChange={e => change('email', e.target.value)} placeholder="you@example.com" /></div><div><label htmlFor="contact-message">What’s on your mind?</label><textarea id="contact-message" name="message" required maxLength={5000} rows={4} value={values.message} onChange={e => change('message', e.target.value)} placeholder="Tell me a little about your idea…" /></div>{!configured && <p className="text-muted-foreground text-sm">Messaging is currently unavailable. <a className="text-primary underline" href={`mailto:${socials.email}`}>Email me directly.</a></p>}{feedback && <p role={feedback.ok ? 'status' : 'alert'} className={feedback.ok ? 'text-primary' : 'text-destructive'}>{feedback.text}</p>}<Button type="submit" disabled={sending || !configured} size="lg" className="w-full justify-between">{sending ? 'Sending your message…' : 'Send message'}{sending ? <Loader2 className="animate-spin" /> : <ArrowRight />}</Button><div className="flex gap-2 items-center mono text-muted-foreground"><Mail size={13} />A DIRECT LINE. NO MIDDLEMEN.</div></form></div></section>;
+}
