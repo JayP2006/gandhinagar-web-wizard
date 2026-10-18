@@ -15,7 +15,7 @@ const About = () => {
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="w-48 h-48 rounded-full overflow-hidden flex-shrink-0 mx-auto md:mx-0 border-4 border-accent shadow-lg">
                 <img 
-                  src="/profilePhoto.jpg" 
+                  src="/profilePhoto.jpeg" 
                   alt="Patel Jaykumar Rakeshbhai" 
                   className="w-full h-full object-cover"
                 />
