@@ -7,7 +7,9 @@ function Sculpture({ light }: { light: boolean }) {
   const group = useRef<Group>(null);
   const time = useRef(0);
   const colors = useMemo(() => {
-    const style = getComputedStyle(document.documentElement);
+    // This explicit theme dependency refreshes the scene's semantic palette.
+    const themeRoot = light ? document.documentElement : document.documentElement;
+    const style = getComputedStyle(themeRoot);
     const token = (name: string) => new Color(`hsl(${style.getPropertyValue(name).trim().split(/\s+/).join(', ')})`);
     return { primary: token('--primary'), accent: token('--accent'), foreground: token('--foreground') };
   }, [light]);
