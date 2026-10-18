@@ -23,7 +23,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+				sans: ['Manrope', 'system-ui', '-apple-system', 'sans-serif'],
+				display: ['Space Grotesk', 'sans-serif'],
+				mono: ['IBM Plex Mono', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

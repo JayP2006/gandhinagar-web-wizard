@@ -3,14 +3,15 @@ import { ArrowUpRight, ArrowRight, Loader2, Github, Linkedin, Mail, Phone } from
 import emailjs from 'emailjs-com';
 import { Button } from '@/components/ui/button';
 import { socials } from '@/data/portfolio';
+import { emailConfig } from '@/data/email-config';
 export default function Contact() {
   const [sending, setSending] = useState(false);
   const pending = useRef(false);
   const [feedback, setFeedback] = useState<{ ok: boolean; text: string } | null>(null);
   const [values, setValues] = useState({ name: '', email: '', message: '' });
-  const service = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-  const template = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-  const key = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+  const service = emailConfig.service;
+  const template = emailConfig.template;
+  const key = emailConfig.publicKey;
   const configured = Boolean(service && template && key);
   const change = (field: keyof typeof values, value: string) => { setValues(v => ({ ...v, [field]: value })); setFeedback(null); };
   async function submit(e: FormEvent<HTMLFormElement>) {

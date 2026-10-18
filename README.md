@@ -6,7 +6,7 @@ React 18 + TypeScript + Vite + Tailwind portfolio. Real procedural React Three F
 Install Node.js, then run `npm install` and `npm run dev`. Vite prints the local address. `npm run lint` runs the existing linter. The Lovable preview automatically checks compilation and TypeScript.
 
 ## Public contact configuration
-Copy `.env.example` to `.env.local` and fill in the existing EmailJS **public** service ID, template ID and public key. Template parameters: `name`, `email`, `message`, `time`. The existing public configuration is preserved in this workspace. Set these three VITE_EMAILJS variables in your deployment environment too. Never use private credentials in VITE variables. Without configuration, the form is disabled and direct email remains available. Delivery success is shown only for an EmailJS HTTP 200 response.
+The existing EmailJS **public** service ID, template ID and public key are preserved as safe browser configuration so the existing contact service remains usable. Optionally override them using the variables in `.env.example`. Template parameters: `name`, `email`, `message`, `time`. Never use private credentials in VITE variables. Delivery success is shown only for an EmailJS HTTP 200 response; service failures keep the message and offer direct email.
 
 ## Resume status
 The supplied brief is authoritative for current professional information. Existing `public/ResumeFinal.pdf` and `public/jayResume.pdf` were inspected; both contradict the updated education and achievements. Download buttons intentionally say **Previous resume** and use the real ResumeFinal.pdf. Supply the updated PDF before relabeling the download; no resume was fabricated.
