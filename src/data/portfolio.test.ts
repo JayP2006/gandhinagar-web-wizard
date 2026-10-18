@@ -1,0 +1,22 @@
+/// <reference types="node" />
+import { describe, it } from 'node:test';
+import assert from 'node:assert/strict';
+import { education, churn, achievements } from './portfolio';
+describe('Updated professional facts', () => {
+  it('uses the updated 8.65 CGPA', () => assert.equal(education.cgpa, 8.65));
+  it('uses the confirmed 2023–2027 education period', () => assert.equal(education.period, '2023–2027'));
+  it('uses 7,043 churn records', () => assert.equal(churn.records, 7043));
+  it('uses 76.15 percent recall', () => assert.equal(churn.recall, 76.15));
+  it('uses 60.09 percent F1', () => assert.equal(churn.f1, 60.09));
+  it('uses 75.02 percent test accuracy', () => assert.equal(churn.accuracy, 75.02));
+  it('uses 5-fold cross-validation', () => assert.equal(churn.folds, 5));
+  it('selects Logistic Regression', () => assert.equal(churn.model, 'Logistic Regression'));
+  it('uses the 1,700 solved problems baseline', () => assert.equal(achievements.solved, 1700));
+  it('uses the 2212 LeetCode rating baseline', () => assert.equal(achievements.leetcode, 2212));
+  it('uses Global Rank 35', () => assert.equal(achievements.rank, 35));
+  it('uses 39,000 participants baseline', () => assert.equal(achievements.participants, 39000));
+  it('uses Weekly Contest 503', () => assert.equal(achievements.contest, 503));
+  it('uses 1918 CodeChef rating baseline', () => assert.equal(achievements.codechef, 1918));
+  it('uses HackerRank 5 stars', () => assert.equal(achievements.hackerrank, 5));
+  it('uses TCS NQT-IT score 600', () => assert.equal(achievements.nqt, 600));
+});

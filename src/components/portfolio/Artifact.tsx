@@ -2,12 +2,23 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Environment, Lightformer } from '@react-three/drei';
 import { Component, Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { Group, Color } from 'three';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 function Sculpture({ light }: { light: boolean }) {
   const group = useRef<Group>(null);
   const time = useRef(0);
+  const scrollState = useRef({ progress: 0 });
+  useEffect(() => {
+    const context = gsap.context(() => {
+      gsap.to(scrollState.current, { progress: 1, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: .4 } });
+    });
+    return () => context.revert();
+  }, []);
   const colors = useMemo(() => {
-    const style = getComputedStyle(document.documentElement);
+    const themeRoot = document.querySelector(light ? ':root.light' : ':root.dark') ?? document.documentElement;
+    const style = getComputedStyle(themeRoot);
     const token = (name: string) => new Color(`hsl(${style.getPropertyValue(name).trim().split(/\s+/).join(', ')})`);
     return { primary: token('--primary'), accent: token('--accent'), foreground: token('--foreground') };
   }, [light]);
@@ -15,15 +26,15 @@ function Sculpture({ light }: { light: boolean }) {
     const a = i * 2.399963; const r = 2.7 + (i % 7) * .17;
     return [Math.cos(a) * r, Math.sin(a) * r, Math.sin(i * 1.73) * 2];
   }).flat()), []);
-  useFrame(({ pointer, viewport }, rawDelta) => {
+  useFrame(({ pointer, viewport, size }, rawDelta) => {
     const g = group.current; if (!g) return;
     const dt = Math.min(rawDelta, .05); time.current += dt;
-    const scroll = Math.min(window.scrollY / Math.max(window.innerHeight, 1), 1);
+    const scroll = scrollState.current.progress;
     g.rotation.y += dt * .085;
     g.rotation.x += ((pointer.y * .13 + scroll * .6) - g.rotation.x) * (1 - Math.exp(-3 * dt));
     g.rotation.z = Math.sin(time.current * .16) * .09 + pointer.x * .08;
-    g.position.x = viewport.width > 8 ? viewport.width * .235 : 0;
-    g.scale.setScalar(viewport.width > 8 ? 1.15 - scroll * .12 : .83);
+    g.position.x = size.width > 850 ? viewport.width * .235 : 0;
+    g.scale.setScalar(size.width > 850 ? 1.15 - scroll * .12 : 1 - scroll * .12);
   });
   return <group ref={group} rotation={[.15, .2, -.12]}>
     <mesh><torusKnotGeometry args={[1.24, .33, 220, 20, 2, 3]} /><meshStandardMaterial color={colors.primary} wireframe transparent opacity={.68} emissive={colors.primary} emissiveIntensity={.35} /></mesh>
